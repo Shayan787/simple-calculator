@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Calculator By Shayan Ali Qazi</title>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background-color: #fff;
+      position: absolute;
+      padding: 20px;
+      top: 2cm;
+      border-radius: 10px;
+      width: 320px;
+    }
+
+    .display {
+      background-color: #222;
+      color: lightgreen;
+      font-size: 50px;
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      text-align: right;
+      margin-bottom: 15px;
+      height: 50px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .buttons button {
+        padding: 20px;
+        margin: 5px;
+        width: 65px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 8px;
+        background-color: #e0e0e0;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+
+    .buttons .operator {
+      background-color: #ff9500;
+      color: white;
+    }
+
+    .buttons .equal {
+      background-color: #34c759;
+      color: white;
+    }
+    .heading{
+      position:absolute;
+      top: 0;
+      bottom: 1cm;
+    }
+    @media (max-width: 768px) {
+      .calculator{
+        border: 1px solid black;
+        width:300px ;
+        margin-top: 1cm;
+      }
+      .display{
+        width: 270px;
+      }
+      .heading{
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="heading">Calculator Designed By Shayan Ali Qazi</h1>
+<div class="calculator">
+    <input type="text" placeholder="0" readonly class="display">
+    
+    <div class="buttons">
+      <button onclick="allclear()">AC</button>
+      <button onclick="del()">DEL</button>
+      <button onclick="add('%')">%</button>
+      <button class="operator" onclick="add('/')">/</button>
+    </div>
+    <div class="buttons">
+      <button onclick="add('7')">7</button>
+      <button onclick="add('8')">8</button>
+      <button onclick="add('9')">9</button>
+      <button class="operator" onclick="add('*')">*</button>
+    </div>
+    <div class="buttons">
+      <button onclick="add('4')">4</button>
+      <button onclick="add('5')">5</button>
+      <button onclick="add('6')">6</button>
+      <button class="operator" onclick="add('-')">-</button>
+    </div>
+    <div class="buttons">
+      <button onclick="add('1')">1</button>
+      <button onclick="add('2')">2</button>
+      <button onclick="add('3')">3</button>
+      <button class="operator" onclick="add('+')">+</button>
+    </div>
+    <div class="buttons">
+      <button onclick="add('0')">0</button>
+      <button onclick="add('00')">00</button>
+      <button onclick="add('.')">.</button>
+      <button class="equal" onclick="solution()">=</button>
+    </div>
+</div>
+<script>
+  let display=document.querySelector('.display')
+  function add(show){
+    display.value+=show;
+  }
+  function allclear(){
+    display.value="";
+  }
+  function solution(){
+    display.value=eval(display.value)
+  }
+  function del(){
+    display.value=display.value.slice(0,-1)
+  }
+
+
+</script>
+</body>
+</html>
